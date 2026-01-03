@@ -84,7 +84,7 @@
 }
 
 /* Fallback for browsers that don't support the above pseudo-element */
-.edit-mode-container input[type="date"]::placeholder { color: #777; }
+.edit-mode-container input[type="date"]::placeholder { color: #777777 !important; }
 
 .star-display { color: #C9A66B; font-size: 18px; }
 .note-actions { display: inline-flex; gap: 10px; align-items: center; }

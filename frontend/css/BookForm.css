@@ -90,7 +90,7 @@
 }
 
 /* Fallback for browsers that don't support the above pseudo-element */
-.entry-form input[type="date"]::placeholder { color: #777; }
+.entry-form input[type="date"]::placeholder { color: #777777 !important; }
 
 .stars {
   font-size: 26px;
@@ -147,4 +147,11 @@
     width: 100%;
   }
   .book-form-container { padding: 16px; }
+}
+input[type="date"] {
+  color: #000000 !important;      /* Forces text to be black */
+  background-color: #ffffff !important; /* Forces background to be white */
+  min-height: 2.5rem;             /* Ensures it has a clickable size */
+  display: block;                 /* Prevents layout collapse */
+  width: 100%;
 }
