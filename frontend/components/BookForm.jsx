@@ -69,13 +69,18 @@ const BookForm = ({ onNoteAdded }) => {
             onChange={(e) => setFormData({...formData, title: e.target.value})} 
             required 
           />
-          <input 
-            type="date" 
-            value={formData.read_date} 
-            onChange={(e) => setFormData({...formData, read_date: e.target.value})}
-            max={getTodayDate()}
-            required 
-          />
+          <div className="date-input-wrapper">
+            <label htmlFor="read_date" className="date-label">Read date</label>
+            <input 
+              id="read_date"
+              type="date" 
+              value={formData.read_date} 
+              onChange={(e) => setFormData({...formData, read_date: e.target.value})}
+              max={getTodayDate()}
+              required 
+              aria-label="Read date"
+            />
+          </div>
           <div className="stars"> 
             {[1,2,3,4,5].map(s => ( // Dyncamic star rating system -Loop creates 1-5 stars
               <span key={s} 

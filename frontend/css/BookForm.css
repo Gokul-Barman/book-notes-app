@@ -209,3 +209,18 @@ input[type="date"]::-webkit-clear-button,
 input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
+
+/* Visible label and wrapper for date input to ensure mobile visibility */
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-label {
+  font-size: 0.92rem;
+  color: #3b2f2f;
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
