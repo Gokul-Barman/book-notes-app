@@ -25,6 +25,7 @@ const CoverImage = ({ src, alt }) => {
 };
 
 const BookNotes = ({ notes, onUpdate }) => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [editingId, setEditingId] = useState(null);
   const [editData, setEditData] = useState({});
   const [editHover, setEditHover] = useState(0); // Tracking hover during edit
@@ -37,7 +38,7 @@ const BookNotes = ({ notes, onUpdate }) => {
   const handleSave = async (id) => {
    
     try {
-      await axios.put(`http://localhost:5000/notes/${id}`, editData);
+      await axios.put(`${API_URL}/notes/${id}`, editData);
       setEditingId(null); 
       onUpdate(); // refresh notes list
     } catch (err) {
@@ -47,7 +48,7 @@ const BookNotes = ({ notes, onUpdate }) => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this note?")) { // confirmation dialog
-      await axios.delete(`http://localhost:5000/notes/${id}`); 
+      await axios.delete(`${API_URL}/notes/${id}`); 
       onUpdate(); // refresh notes list
     }
   };

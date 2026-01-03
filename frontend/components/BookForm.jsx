@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../css/BookForm.css';
 
 const BookForm = ({ onNoteAdded }) => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [formData, setFormData] = useState({ title: '', review: '', rating: 0, read_date: '' });
   const [coverUrl, setCoverUrl] = useState('');
   const [hover, setHover] = useState(0);
@@ -12,7 +13,7 @@ const BookForm = ({ onNoteAdded }) => {
     if (!formData.title) return;
     setLoadingCover(true);
     try {
-      const res = await axios.get(`http://localhost:5000/notes/cover-search?title=${encodeURIComponent(formData.title)}`);
+      const res = await axios.get(`${API_URL}/notes/cover-search?title=${encodeURIComponent(formData.title)}`);
       console.log("Cover search response:", res.data);
       if (res.data.coverUrl) {
         console.log("Setting cover URL:", res.data.coverUrl);
@@ -30,7 +31,7 @@ const BookForm = ({ onNoteAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/notes', { ...formData, cover_url: coverUrl });
+      await axios.post(`${API_URL}/notes`, { ...formData, cover_url: coverUrl });
       setFormData({ title: '', review: '', rating: 0, read_date: '' });
       setCoverUrl('');
       onNoteAdded();

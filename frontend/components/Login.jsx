@@ -3,13 +3,14 @@ import axios from 'axios';
 import '../css/login.css';
 
 const Login = ({ onAuth, onSwitch }) => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/auth/login', { username, password });
+      const res = await axios.post(`${API_URL}/auth/login`, { username, password });
       const { token, user } = res.data;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

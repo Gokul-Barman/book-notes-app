@@ -7,6 +7,7 @@ import Register from '../components/Register.jsx';
 import '../css/App.css';
 
 function App() {
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [notes, setNotes] = useState([]);
   const [sortType, setSortType] = useState('created_at');
   const [user, setUser] = useState(null);
@@ -21,7 +22,7 @@ function App() {
        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set global header so we don't have to manually pass the token in every axios.get/post call. Also persist login state so user stays authenticated on page refresh
       try {
         // fetch user profile from backend to restore the 'user' state
-        const res = await axios.get('http://localhost:5000/auth/me');
+        const res = await axios.get(`${API_URL}/auth/me`);
         setUser(res.data); // restore user state ({id, username})
       } catch (err) {
         console.error("Token invalid or expired", err);
@@ -37,7 +38,7 @@ function App() {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/notes?sort=${sortType}`);
+      const res = await axios.get(`${API_URL}/notes?sort=${sortType}`);
       setNotes(res.data);
     } catch (err) {
       console.error("Error fetching notes", err);
