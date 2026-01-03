@@ -172,9 +172,40 @@
   }
 }
 input[type="date"] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
   color: #000000 !important;      /* Forces text to be black */
   background-color: #ffffff !important; /* Forces background to be white */
   min-height: 2.5rem;             /* Ensures it has a clickable size */
   display: block;                 /* Prevents layout collapse */
   width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(59,47,47,0.08);
+  z-index: 25;
+}
+
+/* WebKit inner editable parts for date inputs (iOS/Safari/Chrome mobile) */
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field {
+  color: #3b2f2f !important; /* ensure inner text is visible */
+  opacity: 1 !important;
+}
+
+/* On some Android browsers the placeholder part can be faint; force full opacity */
+input[type="date"]::placeholder,
+input[type="date"]:-ms-input-placeholder {
+  color: #3b2f2f !important;
+  opacity: 1 !important;
+}
+
+/* hide spin/clear controls that can overlap on some mobile browsers */
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
 }
