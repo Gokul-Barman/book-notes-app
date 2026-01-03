@@ -98,3 +98,7 @@ Add a "Reading Goals" tracker.
 📬 Contact
 www.linkedin.com/in/gokul-barman-23556325b
 
+app preview:
+<img width="3158" height="1660" alt="image" src="https://github.com/user-attachments/assets/b31b44b2-acc3-479e-9e90-16e955ac813d" />
+
+
