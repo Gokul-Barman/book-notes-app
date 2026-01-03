@@ -59,28 +59,33 @@
 }
 
 .entry-form input[type="text"] {
-  flex: 2; /* Takes up more space than the date */
-  padding: 12px;
-  border: 1px solid rgba(59,47,47,0.08);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #3b2f2f;
-  background: transparent;
+
+    flex: 2; /* Takes up more space than the date */
+    padding: 12px;
+    border: 1px solid rgba(59,47,47,0.08);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #3b2f2f;
+    background: transparent;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .entry-form input[type="date"] {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid rgba(59,47,47,0.08);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #555;
-  background: transparent;
-  position: relative;
-  /* ensure native controls are visible on light backgrounds */
-  -webkit-color-scheme: light;
-  color-scheme: light;
-  z-index: 10;
+    flex: 1;
+    padding: 12px;
+    border: 1px solid rgba(59,47,47,0.08);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #555;
+    background: transparent;
+    position: relative;
+    /* ensure native controls are visible on light backgrounds */
+    -webkit-color-scheme: light;
+    color-scheme: light;
+    z-index: 10;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 /* Make the native calendar icon darker/clearer in WebKit-based browsers */
@@ -91,7 +96,7 @@
 }
 
 /* Fallback for browsers that don't support the above pseudo-element */
-.entry-form input[type="date"]::placeholder { color: #777777; }
+  .entry-form input[type="date"]::placeholder { color: #3b2f2f; }
 
 .stars {
   font-size: 26px;
@@ -140,8 +145,16 @@
     align-items: stretch;
     position: relative;
     z-index: 1;
+    gap: 10px;
   }
-  
+    
+  .entry-form input[type="text"],
+  .entry-form input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+    
   .entry-form input[type="date"] {
     z-index: 20;
   }
