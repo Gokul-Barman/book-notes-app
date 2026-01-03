@@ -7,7 +7,13 @@ import { authMiddleware } from './auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://book-notes-app-drab.vercel.app", // live site
+    "http://localhost:5173"                       // local computer (Vite)
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/auth', authRoutes);
