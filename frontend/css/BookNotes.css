@@ -38,6 +38,8 @@
   align-items: center;
   gap: 20px;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .edit-stars {
@@ -56,6 +58,10 @@
   color: #3b2f2f;
   accent-color: #8B3E2F;
   caret-color: #3b2f2f;
+  position: relative;
+  z-index: 10;
+  -webkit-color-scheme: light;
+  color-scheme: light;
 }
 
 .edit-mode-title {
@@ -84,7 +90,7 @@
 }
 
 /* Fallback for browsers that don't support the above pseudo-element */
-.edit-mode-container input[type="date"]::placeholder { color: #777777 !important; }
+.edit-mode-container input[type="date"]::placeholder { color: #777777; }
 
 .star-display { color: #C9A66B; font-size: 18px; }
 .note-actions { display: inline-flex; gap: 10px; align-items: center; }
@@ -93,8 +99,9 @@
 .note-actions .delete-btn { border-color: rgba(183,60,60,0.12); color: #7b2b2b; }
 
 @media (max-width: 768px) {
-  .note-horizontal-card { flex-direction: column; align-items: center; }
+  .note-horizontal-card { flex-direction: column; align-items: center; overflow: visible; }
   .note-horizontal-card img { width: 140px; height: 210px; }
+  .edit-date-input { z-index: 20; }
   .note-actions { display: flex; gap: 8px; }
   .notes-list-wrapper { padding: 0 12px; }
 }

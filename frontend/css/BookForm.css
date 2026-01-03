@@ -80,6 +80,7 @@
   /* ensure native controls are visible on light backgrounds */
   -webkit-color-scheme: light;
   color-scheme: light;
+  z-index: 10;
 }
 
 /* Make the native calendar icon darker/clearer in WebKit-based browsers */
@@ -90,7 +91,7 @@
 }
 
 /* Fallback for browsers that don't support the above pseudo-element */
-.entry-form input[type="date"]::placeholder { color: #777777 !important; }
+.entry-form input[type="date"]::placeholder { color: #777777; }
 
 .stars {
   font-size: 26px;
@@ -137,6 +138,12 @@
   .form-main-row {
     flex-direction: column;
     align-items: stretch;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .entry-form input[type="date"] {
+    z-index: 20;
   }
   
   .stars {
@@ -146,7 +153,10 @@
   .submit-btn {
     width: 100%;
   }
-  .book-form-container { padding: 16px; }
+  .book-form-container { 
+    padding: 16px;
+    overflow: visible;
+  }
 }
 input[type="date"] {
   color: #000000 !important;      /* Forces text to be black */
