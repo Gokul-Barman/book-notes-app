@@ -1,0 +1,144 @@
+.root-variables {
+	/* CSS custom properties (style guide) - tweak these to theme the app */
+}
+
+:root {
+	--bg-paper: #f4efe6;
+	--text-strong: #3b2f2f;
+	--text-muted: #74605a;
+	--accent-book: #8B3E2F; /* book red */
+	--accent-gold: #C9A66B; /* warm gold */
+	--card-bg: #fffdf6;
+	--card-shadow: rgba(59,47,47,0.06);
+	--border-muted: rgba(59,47,47,0.06);
+	--radius: 10px;
+	--max-width: 1100px;
+}
+
+.app-root {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background: url('/taylor-D9_QOTmbFAg-unsplash.jpg') center / cover no-repeat fixed;
+	font-family: Georgia, 'Times New Roman', serif;
+	color: var(--text-strong);
+	padding: 40px 20px;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+.app-container {
+	width: 100%;
+	max-width: var(--max-width); /* keep content readable */
+	margin: 0 auto;
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+.app-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 32px;
+}
+
+.app-header h1 {
+	margin: 0;
+	color: #fffdf6;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(201, 166, 107, 0.3);
+	font-size: 2.5rem;
+}
+
+.user-bar {
+	color: #fffdf6;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+	font-size: 1.1rem;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.user-bar button {
+	background: rgba(139, 62, 47, 0.8);
+	color: #fffdf6;
+	border: none;
+	padding: 10px 16px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.user-bar button:hover {
+	background: #8B3E2F;
+}
+
+/* Top / Bottom sections center their inner content and constrain width */
+.top-section,
+.bottom-section {
+  display: flex;
+  justify-content: center;
+}
+
+.top-section > .book-form-container,
+.bottom-section > .notes-list-wrapper {
+  width: 100%;
+  max-width: calc(var(--max-width) - 80px);
+}
+
+.list-controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 28px 0 16px 0;
+	border-top: 1px solid rgba(59,47,47,0.06);
+	padding-top: 16px;
+}
+
+.list-controls h2 {
+	color: #fffdf6;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(201, 166, 107, 0.3);
+	margin: 0;
+}
+
+/* Button group spacing: keep consistent gap in both row and wrapped column layouts */
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.button-group button {
+  margin: 0; /* gap handles spacing; keep buttons compact */
+}
+
+.active {
+	background: #8B3E2F !important; /* book red accent */
+	color: #fff !important;
+}
+
+/* Utility */
+.muted { color: #74605a; }
+.accent { color: #8B3E2F; }
+
+button, .btn {
+	font-family: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+	:root { --max-width: 900px; }
+	.app-root { padding: 32px 16px; }
+}
+
+@media (max-width: 768px) {
+	:root { --max-width: 680px; }
+	.app-root { padding: 24px 12px; }
+	.app-container { padding: 16px; }
+	.top-section > .book-form-container,
+	.bottom-section > .notes-list-wrapper { max-width: calc(100% - 32px); }
+}

@@ -1,0 +1,150 @@
+.book-form-container {
+  background: #fffdf6; /* slightly warm paper */
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(59,47,47,0.06);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  box-sizing: border-box;
+  border-left: 6px solid #C9A66B; /* subtle bookmark accent */
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* The row containing Title, Date, and Stars */
+.form-main-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.mini-preview {
+  height: 50px;
+  width: 35px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* wrapper to keep preview/placeholder contained in the row */
+.mini-preview-wrapper {
+  width: 35px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.mini-preview.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f0e9e3, #efe6db);
+  color: #74605a;
+  font-size: 11px;
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.entry-form input[type="text"] {
+  flex: 2; /* Takes up more space than the date */
+  padding: 12px;
+  border: 1px solid rgba(59,47,47,0.08);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #3b2f2f;
+  background: transparent;
+}
+
+.entry-form input[type="date"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(59,47,47,0.08);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #555;
+  background: transparent;
+  position: relative;
+  /* ensure native controls are visible on light backgrounds */
+  -webkit-color-scheme: light;
+  color-scheme: light;
+}
+
+/* Make the native calendar icon darker/clearer in WebKit-based browsers */
+.entry-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%); /* makes icon solid dark */
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Fallback for browsers that don't support the above pseudo-element */
+.entry-form input[type="date"]::placeholder { color: #777; }
+
+.stars {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  gap: 6px;
+  min-width: 140px;
+  color: #C9A66B; /* gold for stars */
+}
+
+.entry-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid rgba(59,47,47,0.06);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  background: transparent;
+  color: #3b2f2f;
+}
+
+.submit-btn {
+  background-color: #8B3E2F; /* book red */
+  color: #fffdf6;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.06s ease;
+  align-self: flex-end; /* Pushes button to the right */
+}
+
+.submit-btn:hover { background-color: #71322a; }
+.submit-btn:active { transform: translateY(1px); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-main-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stars {
+    justify-content: center;
+  }
+  
+  .submit-btn {
+    width: 100%;
+  }
+  .book-form-container { padding: 16px; }
+}

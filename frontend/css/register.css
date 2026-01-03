@@ -1,0 +1,51 @@
+.auth-form.register {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--card-shadow);
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  border-left: 6px solid var(--accent-book);
+}
+
+.auth-form.register h3 {
+  margin: 0 0 6px 0;
+  color: var(--text-strong);
+  font-size: 1.1rem;
+}
+
+.auth-form.register input {
+  padding: 10px;
+  border: 1px solid var(--border-muted);
+  border-radius: 6px;
+  font-family: inherit;
+  color: var(--text-strong);
+  background: transparent;
+}
+
+.auth-form.register button {
+  margin-top: 6px;
+  background: var(--accent-gold);
+  color: #3b2f2f;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-form.register button:hover {
+  background: #b88b4f;
+}
+
+.auth-switch { font-size: 0.9rem; color: var(--text-muted); margin-top: 6px; }
+.link-btn { background: none; border: none; color: var(--accent-book); cursor: pointer; text-decoration: underline; padding: 0; font: inherit; }
+
+@media (max-width: 768px) {
+  .auth-form.register { max-width: 100%; width: 100%; }
+}
+
