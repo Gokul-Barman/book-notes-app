@@ -2,7 +2,7 @@
 A full-stack web application designed for book lovers to track, rate, and review their reading journey. This project demonstrates a complete CRUD (Create, Read, Update, Delete) workflow, secure user authentication, and integration with third-party APIs.
 
 🚀 Live Demo
-Frontend: https://book-notes-app-drab.vercel.ap
+Frontend: https://book-notes-app-drab.vercel.app
 
 Backend API: https://openlibrary.org/
 
