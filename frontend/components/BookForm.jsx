@@ -8,6 +8,13 @@ const BookForm = ({ onNoteAdded }) => {
   const [coverUrl, setCoverUrl] = useState('');
   const [hover, setHover] = useState(0);
   const [loadingCover, setLoadingCover] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Get today's date in YYYY-MM-DD format
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  };
 
   const handleTitleBlur = async () => {
     if (!formData.title) return;
@@ -30,6 +37,7 @@ const BookForm = ({ onNoteAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await axios.post(`${API_URL}/notes`, { ...formData, cover_url: coverUrl });
       setFormData({ title: '', review: '', rating: 0, read_date: '' });
@@ -37,6 +45,8 @@ const BookForm = ({ onNoteAdded }) => {
       onNoteAdded();
     } catch (err) {
       alert("Error saving note");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -62,7 +72,8 @@ const BookForm = ({ onNoteAdded }) => {
           <input 
             type="date" 
             value={formData.read_date} 
-            onChange={(e) => setFormData({...formData, read_date: e.target.value})} 
+            onChange={(e) => setFormData({...formData, read_date: e.target.value})}
+            max={getTodayDate()}
             required 
           />
           <div className="stars"> 
@@ -81,8 +92,8 @@ const BookForm = ({ onNoteAdded }) => {
           value={formData.review} 
           onChange={(e) => setFormData({...formData, review: e.target.value})}
         />
-        <button type="submit" className="submit-btn" disabled={loadingCover}>
-          {loadingCover ? 'Waiting for cover...' : 'Add Book Note'}
+        <button type="submit" className="submit-btn" disabled={loadingCover || isSubmitting}>
+          {isSubmitting ? 'Saving...' : loadingCover ? 'Waiting for cover...' : 'Add Book Note'}
         </button>
       </form>
     </div>

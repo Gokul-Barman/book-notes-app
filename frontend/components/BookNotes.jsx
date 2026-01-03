@@ -30,6 +30,12 @@ const BookNotes = ({ notes, onUpdate }) => {
   const [editData, setEditData] = useState({});
   const [editHover, setEditHover] = useState(0); // Tracking hover during edit
 
+  // Get today's date in YYYY-MM-DD format
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  };
+
   const startEdit = (note) => {
     setEditingId(note.id);
     setEditData(note);
@@ -82,7 +88,8 @@ const BookNotes = ({ notes, onUpdate }) => {
                    <input 
                      type="date" 
                      className="edit-date-input"
-                     value={editData.read_date?.split('T')[0]} 
+                     max={getTodayDate()}
+                     value={editData.read_date?.split('T')[0]}  // handle date format
                      onChange={e => setEditData({...editData, read_date: e.target.value})} 
                    />
                 </div>
