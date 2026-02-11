@@ -30,7 +30,7 @@
 .edit-mode-container { display: flex; flex-direction: column; gap: 10px; }
 .note-header { display: flex; justify-content: space-between; align-items: flex-start; }
 .note-header h3 { margin: 0; color: #3b2f2f; }
-.note-review-text { color: #53443f; line-height: 1.6; margin: 10px 0; }
+.note-review-text { color: #53443f; line-height: 1.6; margin: 10px 0; white-space: pre-wrap; word-wrap: break-word; }
 .note-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: #74605a; }
 
 .edit-meta-row {
