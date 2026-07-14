@@ -20,5 +20,9 @@ app.use('/auth', authRoutes);
 
 // Protect notes routes
 app.use("/notes", authMiddleware, notesRoutes);
+// Health check endpoint for UptimeRobot
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'active', message: 'Server is awake' });
+});
 
 app.listen(PORT, '0.0.0.0', () => console.log(`Server on ${PORT}`)); // 0.0.0.0 to accept external connections
