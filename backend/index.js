@@ -22,6 +22,7 @@ app.use('/auth', authRoutes);
 app.use("/notes", authMiddleware, notesRoutes);
 // Health check endpoint for UptimeRobot
 app.get('/api/health', (req, res) => {
+  console.log('Health check ping received from UptimeRobot');
   res.status(200).json({ status: 'active', message: 'Server is awake' });
 });
 
