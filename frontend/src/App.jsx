@@ -66,7 +66,7 @@ function App() {
       <div className="app-root">
         <div className="app-container">
           <header className="app-header">
-            <h1>📚 My Personal Library</h1>
+            <h1>𓂃🪶 My Personal Library</h1>
           </header>
           <div className="auth-row">
             {authView === 'register' ? (
@@ -84,7 +84,7 @@ function App() {
     <div className="app-root">
       <div className="app-container">
         <header className="app-header">
-          <h1>📚 My Personal Library</h1>
+          <h1>𓂃🪶 My Personal Library</h1>
           <div className="user-bar">Logged in as {user.username} <button onClick={logout}>Logout</button></div>
         </header>
 
